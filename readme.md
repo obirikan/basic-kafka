@@ -16,11 +16,11 @@ It lets you send and consume messages through HTTP.
 ```
 kafka_fastapi_demo/
 ├── app/
-│   ├── main.py         # 🚀 FastAPI app (starts Kafka consumer + API endpoints)
-│   ├── producer.py     # 📨 Kafka producer logic (sends messages to topic)
-│   └── consumer.py     # 📥 Kafka consumer logic (reads from topic)
-├── requirements.txt    # 📦 Python dependencies
-└── docker-compose.yml  # 🐚 Kafka + Zookeeper
+│   ├── main.py         # FastAPI app (starts Kafka consumer + API endpoints)
+│   ├── producer.py     # Kafka producer logic (sends messages to topic)
+│   └── consumer.py     # Kafka consumer logic (reads from topic)
+├── requirements.txt    # Python dependencies
+└── docker-compose.yml  # Kafka + Zookeeper
 ```
 
 ## How to Run
