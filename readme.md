@@ -91,9 +91,8 @@ typing-extensions==4.0.1
 ## ✅ To Do
 
 * [ ] Add graceful consumer shutdown
-* [ ] Add `.env` config support
+* [x] Add `.env` config support
 * [ ] Add retry and error handling
-* [ ] Write unit/integration tests
 
 ---
 
