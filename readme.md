@@ -1,51 +1,102 @@
-# Simple Kafka Setup
+# 📦 Kafka FastAPI Demo
 
-This is a basic Kafka producer-consumer project using FastAPI.
-It lets you send and consume messages through HTTP.
+A minimal FastAPI-based microservice architecture using Kafka for event streaming and messaging between services.
 
-## Project Structure
+---
 
-| File                 | Purpose                                                    |
-| -------------------- | ---------------------------------------------------------- |
-| `main.py`            | Starts FastAPI server, triggers consumer in background     |
-| `producer.py`        | Defines how to send messages to Kafka                      |
-| `consumer.py`        | Defines how to read messages from Kafka                    |
-| `docker-compose.yml` | Spins up Kafka & Zookeeper                                 |
-| `requirements.txt`   | Lists Python packages (`fastapi`, `confluent-kafka`, etc.) |
+## 📂 Project Structure
 
 ```
 kafka_fastapi_demo/
 ├── app/
-│   ├── main.py         # FastAPI app (starts Kafka consumer + API endpoints)
-│   ├── producer.py     # Kafka producer logic (sends messages to topic)
-│   └── consumer.py     # Kafka consumer logic (reads from topic)
-├── requirements.txt    # Python dependencies
-└── docker-compose.yml  # Kafka + Zookeeper
+│   ├── endpoint_trigger.py       # FastAPI app (serves endpoints and triggers Kafka logic)
+│   ├── consumer_service/
+│   │   └── consumer.py           # Kafka consumer (listens to topic, handles events)
+│   ├── producer_service/
+│   │   └── producer.py           # Kafka producer (publishes messages to topic)
+├── requirements.txt              # Python dependencies
+└── docker-compose.yml            # Kafka & Zookeeper setup
 ```
 
-## How to Run
+---
 
-1. Install dependencies:
+## 🚀 Getting Started
+
+### 1. Clone the repository
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/your-username/kafka_fastapi_demo.git
+cd kafka_fastapi_demo
 ```
 
-2. Start Kafka and Zookeeper:
+### 2. Start Kafka and Zookeeper
 
 ```bash
 docker-compose up -d
 ```
 
-3. Start FastAPI app:
+Make sure ports `9092` (Kafka) and `2181` (Zookeeper) are not in use.
+
+### 3. Install dependencies
 
 ```bash
-uvicorn app.main:app --reload
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
-4. Test sending a message:
+### 4. Run the FastAPI server
 
 ```bash
-curl -X POST http://localhost:8000/send/hello
+uvicorn app.endpoint_trigger:app --reload
 ```
 
+App will be available at: `http://127.0.0.1:8000`
+
+---
+
+## 📬 API Endpoints
+
+| Method | Endpoint      | Description                       |
+| ------ | ------------- | --------------------------------- |
+| GET    | `/`           | Health check route                |
+| POST   | `/send/{msg}` | Sends a message to Kafka producer |
+
+---
+
+## 🔪 Example Usage
+
+```bash
+curl -X POST http://127.0.0.1:8000/send/HelloKafka
+```
+
+Kafka Producer sends the message, and Kafka Consumer (if running) picks it up.
+
+---
+
+## 📦 Requirements
+
+```text
+fastapi
+uvicorn
+kafka-python==2.0.2
+mypy-extensions==0.4.3
+pathspec==0.9.0
+platformdirs==2.4.0
+tomli==1.2.2
+typing-extensions==4.0.1
+```
+
+
+## ✅ To Do
+
+* [ ] Add graceful consumer shutdown
+* [ ] Add `.env` config support
+* [ ] Add retry and error handling
+* [ ] Write unit/integration tests
+
+---
+
+## 📜 License
+
+MIT
