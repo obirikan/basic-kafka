@@ -1,4 +1,4 @@
-# 📦 Kafka FastAPI Demo
+# 📦 Kafka FastAPI -
 
 A minimal FastAPI-based microservice architecture using Kafka for event streaming and messaging between services.
 
