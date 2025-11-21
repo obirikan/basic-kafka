@@ -1,10 +1,10 @@
-# 📦 Kafka FastAPI -
+# Kafka FastAPI -
 
 A minimal FastAPI-based microservice architecture using Kafka for event streaming and messaging between services.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 kafka_fastapi_demo/
@@ -20,7 +20,7 @@ kafka_fastapi_demo/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the repository
 
@@ -55,7 +55,7 @@ App will be available at: `http://127.0.0.1:8000`
 
 ---
 
-## 📬 API Endpoints
+## API Endpoints
 
 | Method | Endpoint      | Description                       |
 | ------ | ------------- | --------------------------------- |
@@ -74,7 +74,7 @@ Kafka Producer sends the message, and Kafka Consumer (if running) picks it up.
 
 ---
 
-## 📦 Requirements
+## Requirements
 
 ```text
 fastapi
@@ -88,7 +88,7 @@ typing-extensions==4.0.1
 ```
 
 
-## ✅ To Do
+## To Do
 
 * [ ] Add graceful consumer shutdown
 * [x] Add `.env` config support
@@ -96,6 +96,6 @@ typing-extensions==4.0.1
 
 ---
 
-## 📜 License
+## License
 
 MIT
